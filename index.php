@@ -1,7 +1,15 @@
 <?php
+session_start();
 
 require_once __DIR__ . "../function/function.php";
 
+if (isset($_GET["Password"]) && $_GET["Password"] != "") {
+    $password = passwordGenerator($_GET["Password"]);
+    if (isset($password)) {
+        $_SESSION["password"] = $password;
+    };
+};
+echo var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +39,7 @@ require_once __DIR__ . "../function/function.php";
                     <button type="submit" class="btn btn-primary btn-warning mt-3">Reset</button>
                 </form>
             </div>
-
-            <?= var_dump(passwordGenerator(10)); ?>
-            <?= var_dump(passwordGenerator($_GET["Password"])) ?>
+            <?php if (isset($password)) { ?> <div class="passweord"><?= $password ?> </div> <?php } ?>
     </main>
 </body>
 
