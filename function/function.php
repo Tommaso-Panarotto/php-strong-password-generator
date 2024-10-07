@@ -2,15 +2,23 @@
 //Password generator function
 function passwordGenerator($length)
 {
-    //List of characters to use for the password
-    $script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
+    //Validation
+    if (($length >= 5 && $length <= 30) && $length != "") {
 
-    //empty password
-    $password = '';
+        //List of characters to use for the password
+        $script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
 
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $script[random_int(0, strlen($script) - 1)];
-    };
+        //empty password
+        $password = '';
 
-    return $password;
+        //Pick random script
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $script[random_int(0, strlen($script) - 1)];
+        };
+
+        //retrun the password assembled
+        return $password;
+    } else {
+        return "non hai inserito quantità di caratteri adatta";
+    }
 };
