@@ -1,19 +1,7 @@
 <?php
-//Password generator function
-function passwordGenerator($length)
-{
-    //List of characters to use for the password
-    $script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
 
-    //empty password
-    $password = '';
+require_once __DIR__ . "../function/function.php";
 
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $script[random_int(0, strlen($script) - 1)];
-    };
-
-    return $password;
-};
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +32,8 @@ function passwordGenerator($length)
                 </form>
             </div>
 
-            <?= var_dump(passwordGenerator(10)) ?>
-            <?= var_dump(passwordGenerator($_GET['Password'])) ?>
+            <?= var_dump(passwordGenerator(10)); ?>
+            <?= var_dump(passwordGenerator($_GET["Password"])) ?>
     </main>
 </body>
 
