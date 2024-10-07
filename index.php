@@ -1,7 +1,19 @@
 <?php
+//Password generator function
+function passwordGenerator($length)
+{
+    //List of characters to use for the password
+    $script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
 
-$script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
+    //empty password
+    $password = '';
 
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $script[random_int(0, strlen($script) - 1)];
+    };
+
+    return $password;
+};
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +43,9 @@ $script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?
                     <button type="submit" class="btn btn-primary btn-warning mt-3">Reset</button>
                 </form>
             </div>
-        </div>
+
+            <?= var_dump(passwordGenerator(10)) ?>
+            <?= var_dump(passwordGenerator($_GET['Password'])) ?>
     </main>
 </body>
 
