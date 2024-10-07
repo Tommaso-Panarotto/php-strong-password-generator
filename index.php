@@ -1,5 +1,6 @@
 <?php
 
+$script = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!£$%&?|_-';
 
 ?>
 
