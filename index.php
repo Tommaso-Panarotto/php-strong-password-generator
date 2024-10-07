@@ -7,9 +7,10 @@ if (isset($_GET["Password"]) && $_GET["Password"] != "") {
     $password = passwordGenerator($_GET["Password"]);
     if (isset($password)) {
         $_SESSION["password"] = $password;
+        header("Location: password.php");
     };
 };
-echo var_dump($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
